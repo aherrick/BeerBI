@@ -1,4 +1,4 @@
-﻿namespace BeerBl.Data
+﻿namespace BeerBI.Data
 {
     public class Style
     {
