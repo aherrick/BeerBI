@@ -25,6 +25,7 @@ namespace BeerBI.Data.Models.Mapping
             Map(m => m.Description).Name("descript");
             Map(m => m.AddUser).Name("add_user");
             Map(m => m.LastModified).Name("last_mod");
+
         }
     }
 }

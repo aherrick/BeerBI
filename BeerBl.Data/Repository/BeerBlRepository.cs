@@ -11,7 +11,7 @@ namespace BeerBI.Data
         BeerBIDataContext DB = new BeerBIDataContext(DBSingleton.Instance.GetDBConnection());
 
         #endregion
-
+        /*
         #region Beer
 
         public IQueryable<BeerBI.Data.Beer> GetBeers()
@@ -76,6 +76,8 @@ namespace BeerBI.Data
         }
 
         #endregion
+    * 
+    * */
 
         #region Brewery
 
