@@ -10,7 +10,7 @@ namespace BeerBl.Data
     {
         #region Beer
 
-
+        public List<>
 
         #endregion
 
