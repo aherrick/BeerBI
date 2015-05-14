@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BeerBl.Data.Repository
+namespace BeerBI.Data.Repository
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -48,7 +48,7 @@ namespace BeerBl.Data.Repository
     #endregion
 		
 		public BeerBlDataContext() : 
-				base(global::BeerBl.Data.Properties.Settings.Default.BEER_BIConnectionString, mappingSource)
+				base(global::BeerBI.Data.Properties.Settings.Default.BEER_BIConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

@@ -7,18 +7,18 @@ namespace BeerBI.Data
 {
     public class Beer
     {
-        public int id { get; set; }
-        public int brewery_id { get; set; }
-        public string name { get; set; }
-        public int cat_id { get; set; }
-        public int style_id { get; set; }
-        public decimal abv { get; set; }
-        public decimal ibu { get; set; }
-        public decimal srm { get; set; }
-        public decimal upc { get; set; }
-        public string filepath { get; set; }
-        public string descript { get; set; }
-        public string add_user { get; set; }
-        public string last_mod { get; set; }
+        public int Id { get; set; }
+        public int BreweryId { get; set; }
+        public string Name { get; set; }
+        public int CategoryId { get; set; }
+        public int StyleId { get; set; }
+        public decimal ABV { get; set; }
+        public decimal IBU { get; set; }
+        public decimal SRM { get; set; }
+        public decimal UPC { get; set; }
+        public string FilePath { get; set; }
+        public string Description { get; set; }
+        public string AddUser { get; set; }
+        public string LastModified { get; set; }
     }
 }

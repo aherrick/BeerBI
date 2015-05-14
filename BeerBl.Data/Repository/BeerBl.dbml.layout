@@ -32,14 +32,14 @@
         <elementListCompartment Id="30d2ef5f-7e42-4ee8-a3ef-b9a4c24a3d63" absoluteBounds="5.89, 1.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 5.59695556640625); (3.5 : 5.59695556640625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.59695556640625); (3.5 : 5.59695556640625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/BeerBlDataContext/Brewery/Brewery_Beer" />
       <nodes>
         <classShapeMoniker Id="283c69ac-e939-4ded-8c6d-7f5c71e7787c" />
         <classShapeMoniker Id="dd98c937-35aa-44a4-b32c-a5e745be7678" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.98159912109375); (3.5 : 1.98159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.98159912109375); (3.5 : 1.98159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/BeerBlDataContext/Category/Category_Style" />
       <nodes>
         <classShapeMoniker Id="e8e77250-c69d-4294-998e-db879e57dafe" />

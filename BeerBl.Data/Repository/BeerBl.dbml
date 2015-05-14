@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BEER_BI" Class="BeerBlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=RPAUL1504;Initial Catalog=BEER_BI;Integrated Security=True" SettingsObjectName="BeerBl.Data.Properties.Settings" SettingsPropertyName="BEER_BIConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=RPAUL1504;Initial Catalog=BEER_BI;Integrated Security=True" SettingsObjectName="BeerBI.Data.Properties.Settings" SettingsPropertyName="BEER_BIConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Beer" Member="Beers">
     <Type Name="Beer">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

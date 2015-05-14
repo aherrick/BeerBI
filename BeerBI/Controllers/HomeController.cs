@@ -1,5 +1,6 @@
-﻿using BeerBI.Helpers;
-using BeerBI.Models;
+﻿using BeerBI.Data;
+using BeerBI.Data.Models.Mapping;
+using BeerBI.Helpers;
 using CsvHelper;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,8 @@ namespace BeerBI.Controllers
 
                     if(dataType == "Beers")
                     {
-                        var beers = BeerBICSVHelper.GetData<Beer>(httpPostedFile);
+                   
+                        var beers = BeerBICSVHelper.GetData<Beer, BeerMap>(httpPostedFile);
 
                         // save all beers
                     }

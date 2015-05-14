@@ -10,14 +10,15 @@ namespace BeerBI.Helpers
     public static class BeerBICSVHelper
     {
 
-        public static Array GetData<T>(HttpPostedFileBase file)
+        public static Array GetData<T, TMap>(HttpPostedFileBase file)
+            where TMap : CsvHelper.Configuration.CsvClassMap
         {
-
             try
             {
                 using (var reader = new StreamReader(file.InputStream))
                 using (var csvReader = new CsvReader(reader))
                 {
+                    csvReader.Configuration.RegisterClassMap<TMap>();
                     csvReader.Read();
                     return csvReader.GetRecords<T>().ToArray();
                 }
