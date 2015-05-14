@@ -1,0 +1,60 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/app.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="wrap">
+
+        <h1>Beer BI</h1>
+
+        <div class="input-group">
+
+            <span class="btn btn-primary btn-file">
+                CSV File Upload <input type="file">
+            </span>
+
+        </div>
+
+        <div id="tab-wrap">
+
+            <ul class="nav nav-tabs" id="beerbi-tabs">
+
+                <li class="active"><a id="beerbi-beers-link" href="#beerbi-beers" data-toggle="tab">Beers</a></li>
+                <li><a id="beerbi-breweries-link" href="#beerbi-breweries" data-toggle="tab">Breweries</a></li>
+            </ul>
+
+            <div class="tab-content">
+
+
+                <div class="tab-pane active" id="beerbi-beers">
+
+                </div>
+
+                <div class="tab-pane" id="beerbi-breweries">
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+
+    <script src="/Scripts/app.js"></script>
+</body>
+</html>
