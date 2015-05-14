@@ -8,6 +8,8 @@ namespace BeerBl.Data
 {
     public class BeerBlService
     {
+        BeerBlRepository _repo = new BeerBlRepository();
+
         #region Beer
 
 
