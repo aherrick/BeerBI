@@ -26,7 +26,14 @@ namespace BeerBI.Controllers
                 var httpPostedFile = HttpContext.Request.Files["UploadedBeers"];
                 if (httpPostedFile != null)
                 {
-                    var beers = BeerBICSVHelper.GetData<Beer>(httpPostedFile);
+                    var dataType = HttpContext.Request.Form["DataType"].ToString();
+
+                    if(dataType == "Beers")
+                    {
+                        var beers = BeerBICSVHelper.GetData<Beer>(httpPostedFile);
+
+                        // save all beers
+                    }
                 }
             }
         }
