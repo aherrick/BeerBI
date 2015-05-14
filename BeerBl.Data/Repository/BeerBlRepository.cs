@@ -1,12 +1,12 @@
-﻿using BeerBl.Data.Repository;
+﻿using BeerBI.Data.Repository;
 
-namespace BeerBl.Data
+namespace BeerBI.Data
 {
-    public class BeerBlRepository
+    public class BeerBIRepository
     {
         #region DB
 
-        BeerBlDataContext DB = new BeerBlDataContext(DBSingleton.Instance.GetDBConnection());
+        BeerBIDataContext DB = new BeerBIDataContext(DBSingleton.Instance.GetDBConnection());
 
         #endregion
 

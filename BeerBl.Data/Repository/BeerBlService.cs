@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeerBl.Data
+namespace BeerBI.Data
 {
-    public class BeerBlService
+    public class BeerBIService
     {
-        BeerBlRepository _repo = new BeerBlRepository();
+        BeerBIRepository _repo = new BeerBIRepository();
 
         #region Beer
 

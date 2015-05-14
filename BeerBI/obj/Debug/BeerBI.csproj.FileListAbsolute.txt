@@ -39,3 +39,5 @@ C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\System.Web.Mvc.xml
 C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\obj\Debug\BeerBI.csprojResolveAssemblyReference.cache
 C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\obj\Debug\BeerBI.dll
 C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\obj\Debug\BeerBI.pdb
+C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\BeerBI.Data.dll
+C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\BeerBI.Data.pdb

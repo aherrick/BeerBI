@@ -23,7 +23,7 @@ namespace BeerBI.Data.Repository
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="BEER_BI")]
-	public partial class BeerBlDataContext : System.Data.Linq.DataContext
+	public partial class BeerBIDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -47,31 +47,31 @@ namespace BeerBI.Data.Repository
     partial void DeleteGeocode(Geocode instance);
     #endregion
 		
-		public BeerBlDataContext() : 
+		public BeerBIDataContext() : 
 				base(global::BeerBI.Data.Properties.Settings.Default.BEER_BIConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public BeerBlDataContext(string connection) : 
+		public BeerBIDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public BeerBlDataContext(System.Data.IDbConnection connection) : 
+		public BeerBIDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public BeerBlDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public BeerBIDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public BeerBlDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public BeerBIDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
