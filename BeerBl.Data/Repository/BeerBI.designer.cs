@@ -30,21 +30,21 @@ namespace BeerBI.Data.Repository
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertBeer(Beer instance);
-    partial void UpdateBeer(Beer instance);
-    partial void DeleteBeer(Beer instance);
     partial void InsertStyle(Style instance);
     partial void UpdateStyle(Style instance);
     partial void DeleteStyle(Style instance);
-    partial void InsertBrewery(Brewery instance);
-    partial void UpdateBrewery(Brewery instance);
-    partial void DeleteBrewery(Brewery instance);
     partial void InsertCategory(Category instance);
     partial void UpdateCategory(Category instance);
     partial void DeleteCategory(Category instance);
     partial void InsertGeocode(Geocode instance);
     partial void UpdateGeocode(Geocode instance);
     partial void DeleteGeocode(Geocode instance);
+    partial void InsertBeer(Beer instance);
+    partial void UpdateBeer(Beer instance);
+    partial void DeleteBeer(Beer instance);
+    partial void InsertBrewery(Brewery instance);
+    partial void UpdateBrewery(Brewery instance);
+    partial void DeleteBrewery(Brewery instance);
     #endregion
 		
 		public BeerBIDataContext() : 
@@ -77,27 +77,11 @@ namespace BeerBI.Data.Repository
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Beer> Beers
-		{
-			get
-			{
-				return this.GetTable<Beer>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Style> Styles
 		{
 			get
 			{
 				return this.GetTable<Style>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Brewery> Breweries
-		{
-			get
-			{
-				return this.GetTable<Brewery>();
 			}
 		}
 		
@@ -116,443 +100,20 @@ namespace BeerBI.Data.Repository
 				return this.GetTable<Geocode>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Beer")]
-	public partial class Beer : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private int _BreweryId;
-		
-		private string _Name;
-		
-		private int _CategoryId;
-		
-		private int _StyleId;
-		
-		private System.Nullable<decimal> _Abv;
-		
-		private System.Nullable<int> _Ibu;
-		
-		private System.Nullable<int> _Srm;
-		
-		private System.Nullable<int> _Upc;
-		
-		private string _Filepath;
-		
-		private string _Description;
-		
-		private string _CreatedBy;
-		
-		private System.Nullable<System.DateTime> _CreatedOn;
-		
-		private string _ModifiedBy;
-		
-		private System.Nullable<System.DateTime> _ModifiedOn;
-		
-		private EntityRef<Brewery> _Brewery;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnBreweryIdChanging(int value);
-    partial void OnBreweryIdChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnCategoryIdChanging(int value);
-    partial void OnCategoryIdChanged();
-    partial void OnStyleIdChanging(int value);
-    partial void OnStyleIdChanged();
-    partial void OnAbvChanging(System.Nullable<decimal> value);
-    partial void OnAbvChanged();
-    partial void OnIbuChanging(System.Nullable<int> value);
-    partial void OnIbuChanged();
-    partial void OnSrmChanging(System.Nullable<int> value);
-    partial void OnSrmChanged();
-    partial void OnUpcChanging(System.Nullable<int> value);
-    partial void OnUpcChanged();
-    partial void OnFilepathChanging(string value);
-    partial void OnFilepathChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnCreatedByChanging(string value);
-    partial void OnCreatedByChanged();
-    partial void OnCreatedOnChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreatedOnChanged();
-    partial void OnModifiedByChanging(string value);
-    partial void OnModifiedByChanged();
-    partial void OnModifiedOnChanging(System.Nullable<System.DateTime> value);
-    partial void OnModifiedOnChanged();
-    #endregion
-		
-		public Beer()
-		{
-			this._Brewery = default(EntityRef<Brewery>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
+		public System.Data.Linq.Table<Beer> Beers
 		{
 			get
 			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
+				return this.GetTable<Beer>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BreweryId", DbType="Int NOT NULL")]
-		public int BreweryId
+		public System.Data.Linq.Table<Brewery> Breweries
 		{
 			get
 			{
-				return this._BreweryId;
-			}
-			set
-			{
-				if ((this._BreweryId != value))
-				{
-					if (this._Brewery.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBreweryIdChanging(value);
-					this.SendPropertyChanging();
-					this._BreweryId = value;
-					this.SendPropertyChanged("BreweryId");
-					this.OnBreweryIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", DbType="Int NOT NULL")]
-		public int CategoryId
-		{
-			get
-			{
-				return this._CategoryId;
-			}
-			set
-			{
-				if ((this._CategoryId != value))
-				{
-					this.OnCategoryIdChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryId = value;
-					this.SendPropertyChanged("CategoryId");
-					this.OnCategoryIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StyleId", DbType="Int NOT NULL")]
-		public int StyleId
-		{
-			get
-			{
-				return this._StyleId;
-			}
-			set
-			{
-				if ((this._StyleId != value))
-				{
-					this.OnStyleIdChanging(value);
-					this.SendPropertyChanging();
-					this._StyleId = value;
-					this.SendPropertyChanged("StyleId");
-					this.OnStyleIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Abv", DbType="Decimal(14,2)")]
-		public System.Nullable<decimal> Abv
-		{
-			get
-			{
-				return this._Abv;
-			}
-			set
-			{
-				if ((this._Abv != value))
-				{
-					this.OnAbvChanging(value);
-					this.SendPropertyChanging();
-					this._Abv = value;
-					this.SendPropertyChanged("Abv");
-					this.OnAbvChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ibu", DbType="Int")]
-		public System.Nullable<int> Ibu
-		{
-			get
-			{
-				return this._Ibu;
-			}
-			set
-			{
-				if ((this._Ibu != value))
-				{
-					this.OnIbuChanging(value);
-					this.SendPropertyChanging();
-					this._Ibu = value;
-					this.SendPropertyChanged("Ibu");
-					this.OnIbuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Srm", DbType="Int")]
-		public System.Nullable<int> Srm
-		{
-			get
-			{
-				return this._Srm;
-			}
-			set
-			{
-				if ((this._Srm != value))
-				{
-					this.OnSrmChanging(value);
-					this.SendPropertyChanging();
-					this._Srm = value;
-					this.SendPropertyChanged("Srm");
-					this.OnSrmChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Upc", DbType="Int")]
-		public System.Nullable<int> Upc
-		{
-			get
-			{
-				return this._Upc;
-			}
-			set
-			{
-				if ((this._Upc != value))
-				{
-					this.OnUpcChanging(value);
-					this.SendPropertyChanging();
-					this._Upc = value;
-					this.SendPropertyChanged("Upc");
-					this.OnUpcChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Filepath", DbType="NVarChar(500)")]
-		public string Filepath
-		{
-			get
-			{
-				return this._Filepath;
-			}
-			set
-			{
-				if ((this._Filepath != value))
-				{
-					this.OnFilepathChanging(value);
-					this.SendPropertyChanging();
-					this._Filepath = value;
-					this.SendPropertyChanged("Filepath");
-					this.OnFilepathChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="NVarChar(50)")]
-		public string CreatedBy
-		{
-			get
-			{
-				return this._CreatedBy;
-			}
-			set
-			{
-				if ((this._CreatedBy != value))
-				{
-					this.OnCreatedByChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedBy = value;
-					this.SendPropertyChanged("CreatedBy");
-					this.OnCreatedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedOn", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreatedOn
-		{
-			get
-			{
-				return this._CreatedOn;
-			}
-			set
-			{
-				if ((this._CreatedOn != value))
-				{
-					this.OnCreatedOnChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedOn = value;
-					this.SendPropertyChanged("CreatedOn");
-					this.OnCreatedOnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="NVarChar(50)")]
-		public string ModifiedBy
-		{
-			get
-			{
-				return this._ModifiedBy;
-			}
-			set
-			{
-				if ((this._ModifiedBy != value))
-				{
-					this.OnModifiedByChanging(value);
-					this.SendPropertyChanging();
-					this._ModifiedBy = value;
-					this.SendPropertyChanged("ModifiedBy");
-					this.OnModifiedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedOn", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ModifiedOn
-		{
-			get
-			{
-				return this._ModifiedOn;
-			}
-			set
-			{
-				if ((this._ModifiedOn != value))
-				{
-					this.OnModifiedOnChanging(value);
-					this.SendPropertyChanging();
-					this._ModifiedOn = value;
-					this.SendPropertyChanged("ModifiedOn");
-					this.OnModifiedOnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Brewery_Beer", Storage="_Brewery", ThisKey="BreweryId", OtherKey="Id", IsForeignKey=true)]
-		public Brewery Brewery
-		{
-			get
-			{
-				return this._Brewery.Entity;
-			}
-			set
-			{
-				Brewery previousValue = this._Brewery.Entity;
-				if (((previousValue != value) 
-							|| (this._Brewery.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Brewery.Entity = null;
-						previousValue.Beers.Remove(this);
-					}
-					this._Brewery.Entity = value;
-					if ((value != null))
-					{
-						value.Beers.Add(this);
-						this._BreweryId = value.Id;
-					}
-					else
-					{
-						this._BreweryId = default(int);
-					}
-					this.SendPropertyChanged("Brewery");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<Brewery>();
 			}
 		}
 	}
@@ -801,456 +362,6 @@ namespace BeerBI.Data.Repository
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Brewery")]
-	public partial class Brewery : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Name;
-		
-		private string _Address1;
-		
-		private string _Address2;
-		
-		private string _City;
-		
-		private string _State;
-		
-		private string _ZipCode;
-		
-		private string _Country;
-		
-		private string _Phone;
-		
-		private string _Website;
-		
-		private string _FilePath;
-		
-		private string _Description;
-		
-		private string _CreatedBy;
-		
-		private System.Nullable<System.DateTime> _CreatedOn;
-		
-		private string _ModifiedBy;
-		
-		private System.Nullable<System.DateTime> _ModifiedOn;
-		
-		private EntitySet<Beer> _Beers;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnAddress1Changing(string value);
-    partial void OnAddress1Changed();
-    partial void OnAddress2Changing(string value);
-    partial void OnAddress2Changed();
-    partial void OnCityChanging(string value);
-    partial void OnCityChanged();
-    partial void OnStateChanging(string value);
-    partial void OnStateChanged();
-    partial void OnZipCodeChanging(string value);
-    partial void OnZipCodeChanged();
-    partial void OnCountryChanging(string value);
-    partial void OnCountryChanged();
-    partial void OnPhoneChanging(string value);
-    partial void OnPhoneChanged();
-    partial void OnWebsiteChanging(string value);
-    partial void OnWebsiteChanged();
-    partial void OnFilePathChanging(string value);
-    partial void OnFilePathChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnCreatedByChanging(string value);
-    partial void OnCreatedByChanged();
-    partial void OnCreatedOnChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreatedOnChanged();
-    partial void OnModifiedByChanging(string value);
-    partial void OnModifiedByChanged();
-    partial void OnModifiedOnChanging(System.Nullable<System.DateTime> value);
-    partial void OnModifiedOnChanged();
-    #endregion
-		
-		public Brewery()
-		{
-			this._Beers = new EntitySet<Beer>(new Action<Beer>(this.attach_Beers), new Action<Beer>(this.detach_Beers));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(200)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address1", DbType="NVarChar(200)")]
-		public string Address1
-		{
-			get
-			{
-				return this._Address1;
-			}
-			set
-			{
-				if ((this._Address1 != value))
-				{
-					this.OnAddress1Changing(value);
-					this.SendPropertyChanging();
-					this._Address1 = value;
-					this.SendPropertyChanged("Address1");
-					this.OnAddress1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address2", DbType="NVarChar(200)")]
-		public string Address2
-		{
-			get
-			{
-				return this._Address2;
-			}
-			set
-			{
-				if ((this._Address2 != value))
-				{
-					this.OnAddress2Changing(value);
-					this.SendPropertyChanging();
-					this._Address2 = value;
-					this.SendPropertyChanged("Address2");
-					this.OnAddress2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(50)")]
-		public string City
-		{
-			get
-			{
-				return this._City;
-			}
-			set
-			{
-				if ((this._City != value))
-				{
-					this.OnCityChanging(value);
-					this.SendPropertyChanging();
-					this._City = value;
-					this.SendPropertyChanged("City");
-					this.OnCityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="NVarChar(25)")]
-		public string State
-		{
-			get
-			{
-				return this._State;
-			}
-			set
-			{
-				if ((this._State != value))
-				{
-					this.OnStateChanging(value);
-					this.SendPropertyChanging();
-					this._State = value;
-					this.SendPropertyChanged("State");
-					this.OnStateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZipCode", DbType="NVarChar(10)")]
-		public string ZipCode
-		{
-			get
-			{
-				return this._ZipCode;
-			}
-			set
-			{
-				if ((this._ZipCode != value))
-				{
-					this.OnZipCodeChanging(value);
-					this.SendPropertyChanging();
-					this._ZipCode = value;
-					this.SendPropertyChanged("ZipCode");
-					this.OnZipCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="NVarChar(25)")]
-		public string Country
-		{
-			get
-			{
-				return this._Country;
-			}
-			set
-			{
-				if ((this._Country != value))
-				{
-					this.OnCountryChanging(value);
-					this.SendPropertyChanging();
-					this._Country = value;
-					this.SendPropertyChanged("Country");
-					this.OnCountryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(25)")]
-		public string Phone
-		{
-			get
-			{
-				return this._Phone;
-			}
-			set
-			{
-				if ((this._Phone != value))
-				{
-					this.OnPhoneChanging(value);
-					this.SendPropertyChanging();
-					this._Phone = value;
-					this.SendPropertyChanged("Phone");
-					this.OnPhoneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Website", DbType="NVarChar(50)")]
-		public string Website
-		{
-			get
-			{
-				return this._Website;
-			}
-			set
-			{
-				if ((this._Website != value))
-				{
-					this.OnWebsiteChanging(value);
-					this.SendPropertyChanging();
-					this._Website = value;
-					this.SendPropertyChanged("Website");
-					this.OnWebsiteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FilePath", DbType="NVarChar(200)")]
-		public string FilePath
-		{
-			get
-			{
-				return this._FilePath;
-			}
-			set
-			{
-				if ((this._FilePath != value))
-				{
-					this.OnFilePathChanging(value);
-					this.SendPropertyChanging();
-					this._FilePath = value;
-					this.SendPropertyChanged("FilePath");
-					this.OnFilePathChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="NVarChar(50)")]
-		public string CreatedBy
-		{
-			get
-			{
-				return this._CreatedBy;
-			}
-			set
-			{
-				if ((this._CreatedBy != value))
-				{
-					this.OnCreatedByChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedBy = value;
-					this.SendPropertyChanged("CreatedBy");
-					this.OnCreatedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedOn", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreatedOn
-		{
-			get
-			{
-				return this._CreatedOn;
-			}
-			set
-			{
-				if ((this._CreatedOn != value))
-				{
-					this.OnCreatedOnChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedOn = value;
-					this.SendPropertyChanged("CreatedOn");
-					this.OnCreatedOnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="NVarChar(50)")]
-		public string ModifiedBy
-		{
-			get
-			{
-				return this._ModifiedBy;
-			}
-			set
-			{
-				if ((this._ModifiedBy != value))
-				{
-					this.OnModifiedByChanging(value);
-					this.SendPropertyChanging();
-					this._ModifiedBy = value;
-					this.SendPropertyChanged("ModifiedBy");
-					this.OnModifiedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedOn", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ModifiedOn
-		{
-			get
-			{
-				return this._ModifiedOn;
-			}
-			set
-			{
-				if ((this._ModifiedOn != value))
-				{
-					this.OnModifiedOnChanging(value);
-					this.SendPropertyChanging();
-					this._ModifiedOn = value;
-					this.SendPropertyChanged("ModifiedOn");
-					this.OnModifiedOnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Brewery_Beer", Storage="_Beers", ThisKey="Id", OtherKey="BreweryId")]
-		public EntitySet<Beer> Beers
-		{
-			get
-			{
-				return this._Beers;
-			}
-			set
-			{
-				this._Beers.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Beers(Beer entity)
-		{
-			this.SendPropertyChanging();
-			entity.Brewery = this;
-		}
-		
-		private void detach_Beers(Beer entity)
-		{
-			this.SendPropertyChanging();
-			entity.Brewery = null;
 		}
 	}
 	
@@ -1715,6 +826,919 @@ namespace BeerBI.Data.Repository
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Beer")]
+	public partial class Beer : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _BreweryId;
+		
+		private string _Name;
+		
+		private int _CategoryId;
+		
+		private int _StyleId;
+		
+		private System.Nullable<decimal> _Abv;
+		
+		private System.Nullable<decimal> _Ibu;
+		
+		private System.Nullable<decimal> _Srm;
+		
+		private System.Nullable<decimal> _Upc;
+		
+		private string _Filepath;
+		
+		private string _Description;
+		
+		private string _CreatedBy;
+		
+		private System.Nullable<System.DateTime> _CreatedOn;
+		
+		private string _ModifiedBy;
+		
+		private System.Nullable<System.DateTime> _ModifiedOn;
+		
+		private EntityRef<Brewery> _Brewery;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnBreweryIdChanging(int value);
+    partial void OnBreweryIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnCategoryIdChanging(int value);
+    partial void OnCategoryIdChanged();
+    partial void OnStyleIdChanging(int value);
+    partial void OnStyleIdChanged();
+    partial void OnAbvChanging(System.Nullable<decimal> value);
+    partial void OnAbvChanged();
+    partial void OnIbuChanging(System.Nullable<decimal> value);
+    partial void OnIbuChanged();
+    partial void OnSrmChanging(System.Nullable<decimal> value);
+    partial void OnSrmChanged();
+    partial void OnUpcChanging(System.Nullable<decimal> value);
+    partial void OnUpcChanged();
+    partial void OnFilepathChanging(string value);
+    partial void OnFilepathChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnCreatedByChanging(string value);
+    partial void OnCreatedByChanged();
+    partial void OnCreatedOnChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedOnChanged();
+    partial void OnModifiedByChanging(string value);
+    partial void OnModifiedByChanged();
+    partial void OnModifiedOnChanging(System.Nullable<System.DateTime> value);
+    partial void OnModifiedOnChanged();
+    #endregion
+		
+		public Beer()
+		{
+			this._Brewery = default(EntityRef<Brewery>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BreweryId", DbType="Int NOT NULL")]
+		public int BreweryId
+		{
+			get
+			{
+				return this._BreweryId;
+			}
+			set
+			{
+				if ((this._BreweryId != value))
+				{
+					if (this._Brewery.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBreweryIdChanging(value);
+					this.SendPropertyChanging();
+					this._BreweryId = value;
+					this.SendPropertyChanged("BreweryId");
+					this.OnBreweryIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", DbType="Int NOT NULL")]
+		public int CategoryId
+		{
+			get
+			{
+				return this._CategoryId;
+			}
+			set
+			{
+				if ((this._CategoryId != value))
+				{
+					this.OnCategoryIdChanging(value);
+					this.SendPropertyChanging();
+					this._CategoryId = value;
+					this.SendPropertyChanged("CategoryId");
+					this.OnCategoryIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StyleId", DbType="Int NOT NULL")]
+		public int StyleId
+		{
+			get
+			{
+				return this._StyleId;
+			}
+			set
+			{
+				if ((this._StyleId != value))
+				{
+					this.OnStyleIdChanging(value);
+					this.SendPropertyChanging();
+					this._StyleId = value;
+					this.SendPropertyChanged("StyleId");
+					this.OnStyleIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Abv", DbType="Decimal(14,2)")]
+		public System.Nullable<decimal> Abv
+		{
+			get
+			{
+				return this._Abv;
+			}
+			set
+			{
+				if ((this._Abv != value))
+				{
+					this.OnAbvChanging(value);
+					this.SendPropertyChanging();
+					this._Abv = value;
+					this.SendPropertyChanged("Abv");
+					this.OnAbvChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ibu", DbType="Decimal(14,2)")]
+		public System.Nullable<decimal> Ibu
+		{
+			get
+			{
+				return this._Ibu;
+			}
+			set
+			{
+				if ((this._Ibu != value))
+				{
+					this.OnIbuChanging(value);
+					this.SendPropertyChanging();
+					this._Ibu = value;
+					this.SendPropertyChanged("Ibu");
+					this.OnIbuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Srm", DbType="Decimal(14,2)")]
+		public System.Nullable<decimal> Srm
+		{
+			get
+			{
+				return this._Srm;
+			}
+			set
+			{
+				if ((this._Srm != value))
+				{
+					this.OnSrmChanging(value);
+					this.SendPropertyChanging();
+					this._Srm = value;
+					this.SendPropertyChanged("Srm");
+					this.OnSrmChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Upc", DbType="Decimal(14,2)")]
+		public System.Nullable<decimal> Upc
+		{
+			get
+			{
+				return this._Upc;
+			}
+			set
+			{
+				if ((this._Upc != value))
+				{
+					this.OnUpcChanging(value);
+					this.SendPropertyChanging();
+					this._Upc = value;
+					this.SendPropertyChanged("Upc");
+					this.OnUpcChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Filepath", DbType="NVarChar(500)")]
+		public string Filepath
+		{
+			get
+			{
+				return this._Filepath;
+			}
+			set
+			{
+				if ((this._Filepath != value))
+				{
+					this.OnFilepathChanging(value);
+					this.SendPropertyChanging();
+					this._Filepath = value;
+					this.SendPropertyChanged("Filepath");
+					this.OnFilepathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="NVarChar(50)")]
+		public string CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedOn", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedOn
+		{
+			get
+			{
+				return this._CreatedOn;
+			}
+			set
+			{
+				if ((this._CreatedOn != value))
+				{
+					this.OnCreatedOnChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedOn = value;
+					this.SendPropertyChanged("CreatedOn");
+					this.OnCreatedOnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="NVarChar(50)")]
+		public string ModifiedBy
+		{
+			get
+			{
+				return this._ModifiedBy;
+			}
+			set
+			{
+				if ((this._ModifiedBy != value))
+				{
+					this.OnModifiedByChanging(value);
+					this.SendPropertyChanging();
+					this._ModifiedBy = value;
+					this.SendPropertyChanged("ModifiedBy");
+					this.OnModifiedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedOn", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ModifiedOn
+		{
+			get
+			{
+				return this._ModifiedOn;
+			}
+			set
+			{
+				if ((this._ModifiedOn != value))
+				{
+					this.OnModifiedOnChanging(value);
+					this.SendPropertyChanging();
+					this._ModifiedOn = value;
+					this.SendPropertyChanged("ModifiedOn");
+					this.OnModifiedOnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Brewery_Beer", Storage="_Brewery", ThisKey="BreweryId", OtherKey="Id", IsForeignKey=true)]
+		public Brewery Brewery
+		{
+			get
+			{
+				return this._Brewery.Entity;
+			}
+			set
+			{
+				Brewery previousValue = this._Brewery.Entity;
+				if (((previousValue != value) 
+							|| (this._Brewery.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Brewery.Entity = null;
+						previousValue.Beers.Remove(this);
+					}
+					this._Brewery.Entity = value;
+					if ((value != null))
+					{
+						value.Beers.Add(this);
+						this._BreweryId = value.Id;
+					}
+					else
+					{
+						this._BreweryId = default(int);
+					}
+					this.SendPropertyChanged("Brewery");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Brewery")]
+	public partial class Brewery : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _OpenBeerDBId;
+		
+		private string _Name;
+		
+		private string _Address1;
+		
+		private string _Address2;
+		
+		private string _City;
+		
+		private string _State;
+		
+		private string _ZipCode;
+		
+		private string _Country;
+		
+		private string _Phone;
+		
+		private string _Website;
+		
+		private string _FilePath;
+		
+		private string _Description;
+		
+		private string _CreatedBy;
+		
+		private System.Nullable<System.DateTime> _CreatedOn;
+		
+		private string _ModifiedBy;
+		
+		private System.Nullable<System.DateTime> _ModifiedOn;
+		
+		private EntitySet<Beer> _Beers;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnOpenBeerDBIdChanging(int value);
+    partial void OnOpenBeerDBIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnAddress1Changing(string value);
+    partial void OnAddress1Changed();
+    partial void OnAddress2Changing(string value);
+    partial void OnAddress2Changed();
+    partial void OnCityChanging(string value);
+    partial void OnCityChanged();
+    partial void OnStateChanging(string value);
+    partial void OnStateChanged();
+    partial void OnZipCodeChanging(string value);
+    partial void OnZipCodeChanged();
+    partial void OnCountryChanging(string value);
+    partial void OnCountryChanged();
+    partial void OnPhoneChanging(string value);
+    partial void OnPhoneChanged();
+    partial void OnWebsiteChanging(string value);
+    partial void OnWebsiteChanged();
+    partial void OnFilePathChanging(string value);
+    partial void OnFilePathChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnCreatedByChanging(string value);
+    partial void OnCreatedByChanged();
+    partial void OnCreatedOnChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedOnChanged();
+    partial void OnModifiedByChanging(string value);
+    partial void OnModifiedByChanged();
+    partial void OnModifiedOnChanging(System.Nullable<System.DateTime> value);
+    partial void OnModifiedOnChanged();
+    #endregion
+		
+		public Brewery()
+		{
+			this._Beers = new EntitySet<Beer>(new Action<Beer>(this.attach_Beers), new Action<Beer>(this.detach_Beers));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OpenBeerDBId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int OpenBeerDBId
+		{
+			get
+			{
+				return this._OpenBeerDBId;
+			}
+			set
+			{
+				if ((this._OpenBeerDBId != value))
+				{
+					this.OnOpenBeerDBIdChanging(value);
+					this.SendPropertyChanging();
+					this._OpenBeerDBId = value;
+					this.SendPropertyChanged("OpenBeerDBId");
+					this.OnOpenBeerDBIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(200)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address1", DbType="NVarChar(200)")]
+		public string Address1
+		{
+			get
+			{
+				return this._Address1;
+			}
+			set
+			{
+				if ((this._Address1 != value))
+				{
+					this.OnAddress1Changing(value);
+					this.SendPropertyChanging();
+					this._Address1 = value;
+					this.SendPropertyChanged("Address1");
+					this.OnAddress1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address2", DbType="NVarChar(200)")]
+		public string Address2
+		{
+			get
+			{
+				return this._Address2;
+			}
+			set
+			{
+				if ((this._Address2 != value))
+				{
+					this.OnAddress2Changing(value);
+					this.SendPropertyChanging();
+					this._Address2 = value;
+					this.SendPropertyChanged("Address2");
+					this.OnAddress2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(100)")]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this.OnCityChanging(value);
+					this.SendPropertyChanging();
+					this._City = value;
+					this.SendPropertyChanged("City");
+					this.OnCityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="NVarChar(100)")]
+		public string State
+		{
+			get
+			{
+				return this._State;
+			}
+			set
+			{
+				if ((this._State != value))
+				{
+					this.OnStateChanging(value);
+					this.SendPropertyChanging();
+					this._State = value;
+					this.SendPropertyChanged("State");
+					this.OnStateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZipCode", DbType="NVarChar(100)")]
+		public string ZipCode
+		{
+			get
+			{
+				return this._ZipCode;
+			}
+			set
+			{
+				if ((this._ZipCode != value))
+				{
+					this.OnZipCodeChanging(value);
+					this.SendPropertyChanging();
+					this._ZipCode = value;
+					this.SendPropertyChanged("ZipCode");
+					this.OnZipCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="NVarChar(100)")]
+		public string Country
+		{
+			get
+			{
+				return this._Country;
+			}
+			set
+			{
+				if ((this._Country != value))
+				{
+					this.OnCountryChanging(value);
+					this.SendPropertyChanging();
+					this._Country = value;
+					this.SendPropertyChanged("Country");
+					this.OnCountryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(25)")]
+		public string Phone
+		{
+			get
+			{
+				return this._Phone;
+			}
+			set
+			{
+				if ((this._Phone != value))
+				{
+					this.OnPhoneChanging(value);
+					this.SendPropertyChanging();
+					this._Phone = value;
+					this.SendPropertyChanged("Phone");
+					this.OnPhoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Website", DbType="NVarChar(50)")]
+		public string Website
+		{
+			get
+			{
+				return this._Website;
+			}
+			set
+			{
+				if ((this._Website != value))
+				{
+					this.OnWebsiteChanging(value);
+					this.SendPropertyChanging();
+					this._Website = value;
+					this.SendPropertyChanged("Website");
+					this.OnWebsiteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FilePath", DbType="NVarChar(200)")]
+		public string FilePath
+		{
+			get
+			{
+				return this._FilePath;
+			}
+			set
+			{
+				if ((this._FilePath != value))
+				{
+					this.OnFilePathChanging(value);
+					this.SendPropertyChanging();
+					this._FilePath = value;
+					this.SendPropertyChanged("FilePath");
+					this.OnFilePathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="NVarChar(50)")]
+		public string CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedOn", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedOn
+		{
+			get
+			{
+				return this._CreatedOn;
+			}
+			set
+			{
+				if ((this._CreatedOn != value))
+				{
+					this.OnCreatedOnChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedOn = value;
+					this.SendPropertyChanged("CreatedOn");
+					this.OnCreatedOnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="NVarChar(50)")]
+		public string ModifiedBy
+		{
+			get
+			{
+				return this._ModifiedBy;
+			}
+			set
+			{
+				if ((this._ModifiedBy != value))
+				{
+					this.OnModifiedByChanging(value);
+					this.SendPropertyChanging();
+					this._ModifiedBy = value;
+					this.SendPropertyChanged("ModifiedBy");
+					this.OnModifiedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedOn", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ModifiedOn
+		{
+			get
+			{
+				return this._ModifiedOn;
+			}
+			set
+			{
+				if ((this._ModifiedOn != value))
+				{
+					this.OnModifiedOnChanging(value);
+					this.SendPropertyChanging();
+					this._ModifiedOn = value;
+					this.SendPropertyChanged("ModifiedOn");
+					this.OnModifiedOnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Brewery_Beer", Storage="_Beers", ThisKey="Id", OtherKey="BreweryId")]
+		public EntitySet<Beer> Beers
+		{
+			get
+			{
+				return this._Beers;
+			}
+			set
+			{
+				this._Beers.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Beers(Beer entity)
+		{
+			this.SendPropertyChanging();
+			entity.Brewery = this;
+		}
+		
+		private void detach_Beers(Beer entity)
+		{
+			this.SendPropertyChanging();
+			entity.Brewery = null;
 		}
 	}
 }

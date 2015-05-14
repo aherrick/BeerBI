@@ -13,6 +13,8 @@ namespace BeerBI.Controllers
 {
     public class HomeController : Controller
     {
+        BeerBIService _service = new BeerBIService();
+
         // GET: Home
         public ActionResult Index()
         {
@@ -34,6 +36,21 @@ namespace BeerBI.Controllers
                    
                         var beers = BeerBICSVHelper.GetData<Beer, BeerMap>(httpPostedFile);
 
+                        foreach(var beer in beers)
+                        {
+                            _service.SaveBeer((Beer) beer);
+                        }
+                        // save all beers
+                    }else if (dataType == "Breweries")
+                    {
+
+
+                        var breweries = BeerBICSVHelper.GetData<Brewery, BreweryMap>(httpPostedFile);
+
+                        foreach (var brewery in breweries)
+                        {
+                            _service.SaveBrewery((Brewery) brewery);
+                        }
                         // save all beers
                     }
                 }

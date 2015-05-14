@@ -19,7 +19,6 @@ namespace BeerBI.Helpers
                 using (var csvReader = new CsvReader(reader))
                 {
                     csvReader.Configuration.RegisterClassMap<TMap>();
-                    csvReader.Read();
                     return csvReader.GetRecords<T>().ToArray();
                 }
 

@@ -1,25 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BEER_BI" Class="BeerBIDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=RPAUL1504;Initial Catalog=BEER_BI;Integrated Security=True" SettingsObjectName="BeerBI.Data.Properties.Settings" SettingsPropertyName="BEER_BIConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Beer" Member="Beers">
-    <Type Name="Beer">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="BreweryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="StyleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Abv" Type="System.Decimal" DbType="Decimal(14,2)" CanBeNull="true" />
-      <Column Name="Ibu" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Srm" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Upc" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Filepath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ModifiedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Brewery_Beer" Member="Brewery" ThisKey="BreweryId" OtherKey="Id" Type="Brewery" IsForeignKey="true" />
-    </Type>
-  </Table>
+  <Connection Mode="AppSettings" ConnectionString="Data Source=RPAUL1504;Initial Catalog=BEER_BI;Integrated Security=True" SettingsObjectName="BeerBl.Data.Properties.Settings" SettingsPropertyName="BEER_BIConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Style" Member="Styles">
     <Type Name="Style">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -30,27 +10,6 @@
       <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ModifiedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Category_Style" Member="Category" ThisKey="CategoryId" OtherKey="Id" Type="Category" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Brewery" Member="Breweries">
-    <Type Name="Brewery">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Address1" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Address2" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="State" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="ZipCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="Country" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="Phone" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="Website" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="FilePath" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ModifiedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Brewery_Beer" Member="Beers" ThisKey="Id" OtherKey="BreweryId" Type="Beer" />
     </Type>
   </Table>
   <Table Name="dbo.Category" Member="Categories">
@@ -75,6 +34,48 @@
       <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ModifiedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Beer" Member="Beers">
+    <Type Name="Beer">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BreweryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StyleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Abv" Type="System.Decimal" DbType="Decimal(14,2)" CanBeNull="true" />
+      <Column Name="Ibu" Type="System.Decimal" DbType="Decimal(14,2)" CanBeNull="true" />
+      <Column Name="Srm" Type="System.Decimal" DbType="Decimal(14,2)" CanBeNull="true" />
+      <Column Name="Upc" Type="System.Decimal" DbType="Decimal(14,2)" CanBeNull="true" />
+      <Column Name="Filepath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Brewery_Beer" Member="Brewery" ThisKey="BreweryId" OtherKey="Id" Type="Brewery" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Brewery" Member="Breweries">
+    <Type Name="Brewery">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OpenBeerDBId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Address1" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Address2" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ZipCode" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="Website" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FilePath" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Brewery_Beer" Member="Beers" ThisKey="Id" OtherKey="BreweryId" Type="Beer" />
     </Type>
   </Table>
 </Database>

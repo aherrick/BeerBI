@@ -2,22 +2,10 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="BeerBI">
   <DataContextMoniker Name="/BeerBIDataContext" />
   <nestedChildShapes>
-    <classShape Id="dd98c937-35aa-44a4-b32c-a5e745be7678" absoluteBounds="3.5, 3.75, 2, 3.6939111328124987">
-      <DataClassMoniker Name="/BeerBIDataContext/Beer" />
-      <nestedChildShapes>
-        <elementListCompartment Id="3454a6c5-c5df-4975-88e7-0ed0582cfd82" absoluteBounds="3.5150000000000006, 4.21, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="e2a633e0-f73f-47c3-b89e-752945ed01e8" absoluteBounds="3.5, 0.875, 2, 2.1554996744791666">
       <DataClassMoniker Name="/BeerBIDataContext/Style" />
       <nestedChildShapes>
         <elementListCompartment Id="01b11d1a-398a-4527-865c-163af35fb241" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="283c69ac-e939-4ded-8c6d-7f5c71e7787c" absoluteBounds="0.75, 3.75, 2, 3.8862125651041666">
-      <DataClassMoniker Name="/BeerBIDataContext/Brewery" />
-      <nestedChildShapes>
-        <elementListCompartment Id="4807a924-58db-4d4e-bd98-85f208494dca" absoluteBounds="0.76500000000000012, 4.21, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="e8e77250-c69d-4294-998e-db879e57dafe" absoluteBounds="0.75, 1, 2, 1.9631982421875003">
@@ -32,18 +20,30 @@
         <elementListCompartment Id="30d2ef5f-7e42-4ee8-a3ef-b9a4c24a3d63" absoluteBounds="5.89, 1.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 5.59695556640625); (3.5 : 5.59695556640625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/BeerBIDataContext/Brewery/Brewery_Beer" />
-      <nodes>
-        <classShapeMoniker Id="283c69ac-e939-4ded-8c6d-7f5c71e7787c" />
-        <classShapeMoniker Id="dd98c937-35aa-44a4-b32c-a5e745be7678" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.98159912109375); (3.5 : 1.98159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 1.98159912109375); (3.5 : 1.98159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/BeerBIDataContext/Category/Category_Style" />
       <nodes>
         <classShapeMoniker Id="e8e77250-c69d-4294-998e-db879e57dafe" />
         <classShapeMoniker Id="e2a633e0-f73f-47c3-b89e-752945ed01e8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ad8b5603-8466-47f0-94bb-b401b3825b50" absoluteBounds="3.625, 3.75, 2, 3.6939111328124996">
+      <DataClassMoniker Name="/BeerBIDataContext/Beer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90150d27-4f5a-4196-b0dd-41b372d76977" absoluteBounds="3.64, 4.21, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7aa463c7-29fc-4d2b-a33c-c5561178623a" absoluteBounds="0.75, 3.625, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/BeerBIDataContext/Brewery" />
+      <nestedChildShapes>
+        <elementListCompartment Id="da9776b6-68db-4879-a06f-908727bf2905" absoluteBounds="0.76500000000000012, 4.085, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 5.59695556640625); (3.625 : 5.59695556640625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BeerBIDataContext/Brewery/Brewery_Beer" />
+      <nodes>
+        <classShapeMoniker Id="7aa463c7-29fc-4d2b-a33c-c5561178623a" />
+        <classShapeMoniker Id="ad8b5603-8466-47f0-94bb-b401b3825b50" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
