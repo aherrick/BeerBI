@@ -39,5 +39,13 @@ C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\System.Web.Mvc.xml
 C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\obj\Debug\BeerBI.csprojResolveAssemblyReference.cache
 C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\obj\Debug\BeerBI.dll
 C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\obj\Debug\BeerBI.pdb
-C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\BeerBI.Data.dll
-C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\BeerBI.Data.pdb
+C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\BeerBl.Data.dll
+C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\Newtonsoft.Json.dll
+C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\System.Net.Http.Formatting.dll
+C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\System.Web.Http.dll
+C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\System.Web.Http.WebHost.dll
+C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\BeerBl.Data.pdb
+C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\Newtonsoft.Json.xml
+C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\System.Net.Http.Formatting.xml
+C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\System.Web.Http.xml
+C:\Dropbox\Projects\BHS\Interns\BeerBI\BeerBI\bin\System.Web.Http.WebHost.xml
