@@ -19,14 +19,6 @@ namespace BeerBI
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-
-            //// New code:
-            //ODataModelBuilder builder = new ODataConventionModelBuilder();
-            //builder.EntitySet<Product>("Products");
-            //config.MapODataServiceRoute(
-            //    routeName: "ODataRoute",
-            //    routePrefix: null,
-            //    model: builder.GetEdmModel());
         }
     }
 }

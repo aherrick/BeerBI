@@ -13,11 +13,10 @@ namespace BeerBI
     {
         protected void Application_Start()
         {
+            // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-
-
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);    
 
         }
     }
