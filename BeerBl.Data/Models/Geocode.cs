@@ -1,9 +1,9 @@
 ﻿
 public class Geocode
 {
-    public int id { get; set; }
-    public int brewery_id { get; set; }
-    public decimal latitude { get; set; }
-    public decimal longitude { get; set; }
-    public string accuracy { get; set; }
+    public int Id { get; set; }
+    public int BreweryId { get; set; }
+    public decimal? Latitude { get; set; }
+    public decimal? Longitude { get; set; }
+    public string Accuracy { get; set; }
 }

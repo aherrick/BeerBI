@@ -87,7 +87,6 @@ namespace BeerBI.Data
 
         #region Brewery
 
-
         public IQueryable<Brewery> GetBreweries()
         {
             return from sqlBrewery in DB.Breweries
@@ -103,7 +102,7 @@ namespace BeerBI.Data
                        Code = sqlBrewery.ZipCode,
                        Country = sqlBrewery.Country,
                        Phone = sqlBrewery.Phone,
-                       Website = new Uri(sqlBrewery.Website),
+                       Website = sqlBrewery.Website,
                        FilePath = sqlBrewery.FilePath,
                        Description = sqlBrewery.Description,
                        AddUser = sqlBrewery.CreatedBy,
@@ -164,19 +163,160 @@ namespace BeerBI.Data
 
         #region Category
 
+        public IQueryable<Category> GetCategories()
+        {
+            return from sqlCategory in DB.Categories
+                   select new Category
+                   {
+                       Id = sqlCategory.Id,
+                       Name = sqlCategory.Name,
+                       LastModified = sqlCategory.ModifiedOn.ToString()
 
+                   };
+        }
+
+        public int SaveCategory(Category category)
+        {
+            var sqlCategory = DB.Categories.Where(x => x.Id == category.Id).SingleOrDefault();
+            var isNew = false;
+
+            if (sqlCategory == null)
+            {
+                isNew = true;
+                sqlCategory = new BeerBI.Data.Repository.Category();
+                sqlCategory.CreatedBy = category.LastModified;
+                sqlCategory.CreatedOn = DateTime.UtcNow;
+            }
+
+            sqlCategory.Name = category.Name;
+
+            sqlCategory.ModifiedBy = category.LastModified;
+            sqlCategory.ModifiedOn = DateTime.UtcNow;
+
+            if (isNew)
+                DB.Categories.InsertOnSubmit(sqlCategory);
+
+            DB.SubmitChanges();
+
+            return sqlCategory.Id;
+        }
+
+        public void DeleteCategory(int id)
+        {
+            var dbCategory = DB.Categories.Where(x => x.Id == id).SingleOrDefault();
+
+            if (dbCategory != null)
+            {
+                DB.Categories.DeleteOnSubmit(dbCategory);
+                DB.SubmitChanges();
+            }
+        }
 
         #endregion
 
         #region Geocode
 
+        public IQueryable<Geocode> GetGeocodes()
+        {
+            return from sqlGeocode in DB.Geocodes
+                   select new Geocode
+                   {
+                       Id = sqlGeocode.Id,
+                       BreweryId = sqlGeocode.BreweryId,
+                       Latitude = sqlGeocode.Latitude,
+                       Longitude = sqlGeocode.Longitude,
+                       Accuracy = sqlGeocode.Accuracy
+                   };
+        }
 
+        public int SaveGeocode(Geocode geocode)
+        {
+            var sqlGeocode = DB.Geocodes.Where(x => x.Id == geocode.Id).SingleOrDefault();
+            var isNew = false;
+
+            if (sqlGeocode == null)
+            {
+                isNew = true;
+                sqlGeocode = new BeerBI.Data.Repository.Geocode();
+                sqlGeocode.CreatedBy = "";
+                sqlGeocode.CreatedOn = DateTime.UtcNow;
+            }
+
+            sqlGeocode.BreweryId = geocode.BreweryId;
+            sqlGeocode.Latitude = geocode.Latitude;
+            sqlGeocode.Longitude = geocode.Longitude;
+            sqlGeocode.Accuracy = geocode.Accuracy;
+
+            if (isNew)
+                DB.Geocodes.InsertOnSubmit(sqlGeocode);
+
+            DB.SubmitChanges();
+
+            return sqlGeocode.Id;
+        }
+
+        public void DeleteGeocode(int id)
+        {
+            var dbGeocode = DB.Geocodes.Where(x => x.Id == id).SingleOrDefault();
+
+            if (dbGeocode != null)
+            {
+                DB.Geocodes.DeleteOnSubmit(dbGeocode);
+                DB.SubmitChanges();
+            }
+        }
 
         #endregion
 
         #region Style
 
+        public IQueryable<Style> GetStyles()
+        {
+            return from sqlStyle in DB.Styles
+                   select new Style
+                   {
+                       Id = sqlStyle.Id,
+                       CategoryId = sqlStyle.CategoryId,
+                       Name = sqlStyle.Name,
+                       LastModified = sqlStyle.ModifiedBy
+                   };
+        }
 
+        public int SaveStyle(Style style)
+        {
+            var sqlStyle = DB.Styles.Where(x => x.Id == style.Id).SingleOrDefault();
+            var isNew = false;
+
+            if (sqlStyle == null)
+            {
+                isNew = true;
+                sqlStyle = new BeerBI.Data.Repository.Style();
+                sqlStyle.CreatedBy = "";
+                sqlStyle.CreatedOn = DateTime.UtcNow;
+            }
+
+            sqlStyle.CategoryId = style.CategoryId;
+            sqlStyle.Name = style.Name;
+            sqlStyle.ModifiedBy = style.LastModified;
+
+            if (isNew)
+                DB.Styles.InsertOnSubmit(sqlStyle);
+
+            DB.SubmitChanges();
+
+            return sqlStyle.Id;
+        }
+
+        public void DeleteStyle(int id)
+        {
+            var dbStyle = DB.Styles.Where(x => x.Id == id).SingleOrDefault();
+
+            if (dbStyle != null)
+            {
+                DB.Styles.DeleteOnSubmit(dbStyle);
+                DB.SubmitChanges();
+            }
+        }
 
         #endregion
     }

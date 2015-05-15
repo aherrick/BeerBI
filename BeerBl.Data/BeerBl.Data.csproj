@@ -52,6 +52,9 @@
     <Compile Include="Models\Geocode.cs" />
     <Compile Include="Models\Mapping\BeerMap.cs" />
     <Compile Include="Models\Mapping\BreweryMap.cs" />
+    <Compile Include="Models\Mapping\CategoryMap.cs" />
+    <Compile Include="Models\Mapping\GeocodeMap.cs" />
+    <Compile Include="Models\Mapping\StyleMap.cs" />
     <Compile Include="Models\Style.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

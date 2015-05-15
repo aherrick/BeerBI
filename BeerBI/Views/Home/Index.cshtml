@@ -32,33 +32,27 @@
 
                 <li class="active"><a id="beerbi-beers-link" href="#beerbi-beers" data-toggle="tab">Beers</a></li>
                 <li><a id="beerbi-breweries-link" href="#beerbi-breweries" data-toggle="tab">Breweries</a></li>
+                <li><a id="beerbi-breweries-link" href="#beerbi-geocodes" data-toggle="tab">Geocodes</a></li>
+                <li><a id="beerbi-breweries-link" href="#beerbi-styles" data-toggle="tab">Styles</a></li>
+                <li><a id="beerbi-breweries-link" href="#beerbi-categories" data-toggle="tab">Categories</a></li>
             </ul>
 
             <div class="tab-content">
 
 
                 <div class="tab-pane active" id="beerbi-beers">
-
                 </div>
 
                 <div class="tab-pane" id="beerbi-breweries">
-
-
                 </div>
 
                 <div class="tab-pane" id="beerbi-geocodes">
-
-
                 </div>
 
                 <div class="tab-pane" id="beerbi-styles">
-
-
                 </div>
 
-                <div class="tab-pane" id="beerbi-breweries">
-
-
+                <div class="tab-pane" id="beerbi-categories">
                 </div>
             </div>
         </div>
@@ -66,9 +60,123 @@
     </div>
 
 
-    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="/Scripts/jquery-2.1.4.min.js"></script>
     <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/ICanHaz.min.js"></script>
 
     <script src="/Scripts/app.js"></script>
+
+    <script id="beerList" type="text/html">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>ABV</th>
+                    <th>IBU</th>
+                    <th>SRM</th>
+                    <th>UPC</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#tmpl}}
+                <tr data-beerid="{{Id}}">
+                    <td>{{Name}}</td>
+                    <td>{{ABV}}</td>
+                    <td>{{IBU}}</td>
+                    <td>{{SRM}}</td>
+                    <td>{{UPC}}</td>
+                </tr>
+                {{/tmpl}}
+            </tbody>
+        </table>
+    </script>
+
+    <script id="breweryList" type="text/html">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Website</th>
+                    <th>Address 1</th>
+                    <th>Address 2</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#tmpl}}
+                <tr data-breweryid="{{OpenBeerDBId}}">
+                    <td>{{Name}}</td>
+                    <td>{{Website}}</td>
+                    <td>{{Address1}}</td>
+                    <td>{{Address2}}</td>
+                    <td>{{City}}</td>
+                    <td>{{State}}</td>
+                    <td>{{Code}}</td>
+                </tr>
+                {{/tmpl}}
+            </tbody>
+        </table>
+    </script>
+
+    <script id="geocodeList" type="text/html">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Brewery ID</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Accuracy</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#tmpl}}
+                <tr data-geocodeid="{{id}}">
+                    <td>{{BreweryId}}</td>
+                    <td>{{Latitude}}</td>
+                    <td>{{Longitude}}</td>
+                    <td>{{Accuracy}}</td>
+                </tr>
+                {{/tmpl}}
+            </tbody>
+        </table>
+    </script>
+
+    <script id="styleList" type="text/html">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Category ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#tmpl}}
+                <tr data-styleid="{{id}}">
+                    <td>{{CategoryId}}</td>
+                    <td>{{Name}}</td>
+                </tr>
+                {{/tmpl}}
+            </tbody>
+        </table>
+    </script>
+
+    <script id="categoryList" type="text/html">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#tmpl}}
+                <tr data-styleid="{{id}}">
+                    <td>{{Name}}</td>
+                </tr>
+                {{/tmpl}}
+            </tbody>
+        </table>
+    </script>
 </body>
 </html>

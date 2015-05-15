@@ -14,7 +14,7 @@ namespace BeerBI.Data
         public string Code { get; set; }
         public string Country { get; set; }
         public string Phone { get; set; }
-        public Uri Website { get; set; }
+        public string Website { get; set; }
         public string FilePath { get; set; }
         public string Description { get; set; }
         public string AddUser { get; set; }

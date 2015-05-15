@@ -50,19 +50,58 @@ namespace BeerBI.Data
 
         #region Category
 
+        public List<Category> GetCategories()
+        {
+            return _repo.GetCategories().ToList();
+        }
 
+        public int SaveCategory(Category category)
+        {
+            return _repo.SaveCategory(category);
+        }
+
+        public void DeleteCategory(int id)
+        {
+            _repo.DeleteCategory(id);
+        }
 
         #endregion
 
         #region Geocode
 
+        public List<Geocode> GetGeocodes()
+        {
+            return _repo.GetGeocodes().ToList();
+        }
 
+        public int SaveGeocode(Geocode geocode)
+        {
+            return _repo.SaveGeocode(geocode);
+        }
+
+        public void DeleteGeocode(int id)
+        {
+            _repo.DeleteGeocode(id);
+        }
 
         #endregion
 
         #region Style
 
+        public List<Style> GetStyles()
+        {
+            return _repo.GetStyles().ToList();
+        }
 
+        public int SaveStyle(Style style)
+        {
+            return _repo.SaveStyle(style);
+        }
+
+        public void DeleteStyle(int id)
+        {
+            _repo.DeleteStyle(id);
+        }
 
         #endregion
     }

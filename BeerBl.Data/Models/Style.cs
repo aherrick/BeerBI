@@ -2,9 +2,9 @@
 {
     public class Style
     {
-        public int id { get; set; }
-        public int cat_id { get; set; }
-        public string style_name { get; set; }
-        public string last_mod { get; set; }
+        public int Id { get; set; }
+        public int CategoryId { get; set; }
+        public string Name { get; set; }
+        public string LastModified { get; set; }
     }
 }
