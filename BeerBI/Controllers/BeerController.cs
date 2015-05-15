@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using BeerBI.Data;
+using System.Linq;
 using System.Web.Http;
 using System.Web.OData;
 using System.Web.OData.Routing;
@@ -7,20 +8,18 @@ namespace BeerBI.Controllers
 {
     public class BeerController : ODataController
     {
-        BeerBI.Data.Repository.BeerBIDataContext db = new BeerBI.Data.Repository.BeerBIDataContext();
-
-        
+        BeerBI.Data.Repository.BeerBIDataContext DB = new BeerBI.Data.Repository.BeerBIDataContext(DBSingleton.Instance.GetDBConnection());
 
         [EnableQuery]
         public IQueryable<BeerBI.Data.Repository.Beer> Get()
         {
-            return db.Beers.AsQueryable();
+            return DB.Beers.AsQueryable();
 
         }
         [EnableQuery]
         public SingleResult<BeerBI.Data.Repository.Beer> Get([FromODataUri] int key)
         {
-            IQueryable<BeerBI.Data.Repository.Beer> result = db.Beers.Where(p => p.Id == key).AsQueryable();
+            var result = DB.Beers.Where(p => p.Id == key);
             return SingleResult.Create(result);
         }
     }
